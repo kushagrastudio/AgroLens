@@ -9,6 +9,7 @@ aiofiles
 groq
 langchain
 langchain-community
+langchain-text-splitters
 
 # RAG
 faiss-cpu
