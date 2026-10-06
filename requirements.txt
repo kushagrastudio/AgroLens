@@ -10,6 +10,7 @@ groq
 langchain
 langchain-community
 langchain-text-splitters
+langchain-core
 
 # RAG
 faiss-cpu
