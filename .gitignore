@@ -1,0 +1,32 @@
+# environment
+.env
+
+# python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# models (too large for github)
+backend/models/*.onnx
+backend/models/*.pth
+
+# faiss indexes (auto-generated)
+backend/knowledge/indexes/
+
+# node
+frontend/node_modules/
+frontend/dist/
+
+# os files
+.DS_Store
+Thumbs.db
+
+# ide
+.vscode/
+.idea/

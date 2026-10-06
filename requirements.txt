@@ -1,0 +1,32 @@
+# API
+fastapi==0.115.0
+uvicorn[standard]==0.30.1
+python-multipart==0.0.9
+pydantic==2.7.4
+aiofiles==23.2.1
+
+# LLM — Groq (free)
+groq==0.9.0
+langchain==0.2.6
+langchain-community==0.2.6
+
+# RAG
+faiss-cpu
+sentence-transformers==3.0.1
+
+# Vision
+onnxruntime==1.18.1
+Pillow==10.3.0
+numpy==1.26.4
+torch==2.3.0
+torchvision==0.18.0
+grad-cam==1.5.0
+
+# Language
+langdetect==1.0.9
+deep-translator==1.11.4
+
+# Utils
+python-dotenv==1.0.1
+httpx==0.27.2
+pandas==2.2.2
