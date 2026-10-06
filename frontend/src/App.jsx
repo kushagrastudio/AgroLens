@@ -183,7 +183,7 @@ export default function App() {
       formData.append("image", imageFile);
       formData.append("language", LANGUAGES[lang]);
 
-      const res = await axios.post(`${import.meta.env.VITE_API_URL || ""}/query`, formData, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/query`, formData, { 
         headers: { "Content-Type": "multipart/form-data" },
         timeout: 30000,
       });
