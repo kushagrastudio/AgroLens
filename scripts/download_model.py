@@ -6,9 +6,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # ── this script does two things:
 # 1. downloads pretrained efficientnet-b0 from torchvision
 # 2. exports it to ONNX format for runtime inference
-# note: for full accuracy, fine-tune on PlantVillage before exporting
 # ─────────────────────────────────────────────────────────────────────
-
 
 NUM_CLASSES = 38
 MODEL_DIR   = "backend/models"
@@ -51,7 +49,6 @@ def download_and_export():
     print(f"      Saved to {PTH_PATH}")
     print("      NOTE: These are ImageNet pretrained weights.")
     print("      For full accuracy, fine-tune on PlantVillage dataset.")
-    print("      Fine-tuning script: python scripts/finetune.py")
 
     # ── step 3: export to ONNX ────────────────────────────
     print("\n[3/3] Exporting to ONNX format...")
@@ -62,7 +59,7 @@ def download_and_export():
         dummy_input,
         ONNX_PATH,
         export_params=True,
-        opset_version=17,
+        opset_version=12,
         do_constant_folding=True,
         input_names=["input"],
         output_names=["output"],
@@ -109,11 +106,12 @@ def download_and_export():
 
 def check_already_exists():
     if os.path.exists(ONNX_PATH):
-        print(f"ONNX model already exists at {ONNX_PATH}")
-        overwrite = input("Overwrite? (y/n): ").strip().lower()
-        if overwrite != "y":
-            print("Skipping download.")
+        size = os.path.getsize(ONNX_PATH)
+        if size > 1000000:  # bigger than 1MB means real model
+            print(f"ONNX model already exists ({size/1024/1024:.1f} MB) — skipping")
             sys.exit(0)
+        else:
+            print(f"ONNX model too small ({size} bytes) — regenerating")
 
 
 if __name__ == "__main__":
