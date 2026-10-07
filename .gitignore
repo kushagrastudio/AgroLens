@@ -12,13 +12,6 @@ __pycache__/
 dist/
 build/
 
-# models (too large for github)
-backend/models/*.onnx
-backend/models/*.pth
-
-# faiss indexes (auto-generated)
-backend/knowledge/indexes/
-
 # node
 frontend/node_modules/
 frontend/dist/
