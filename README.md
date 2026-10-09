@@ -1,55 +1,135 @@
-# AgroLens 🌾
+# 🌾 AgroLens
 
-Offline-capable crop disease detection for Indian smallholder farmers.
-Upload a photo, get disease diagnosis, treatment steps, and government scheme information — no internet required for inference.
+<div align="center">
 
-Built for **IEEE Hackathon 2025 — Gen AI & ML Track — PS 03.1 Vision in the Wild**
+<img width="120" src="https://cdn-icons-png.flaticon.com/512/628/628324.png" />
+
+## 🚜 Offline-capable crop disease detection for Indian smallholder farmers.
+
+### Upload a photo, get disease diagnosis, treatment steps, and government scheme information — no internet required for inference.
+
+<img src="https://img.shields.io/badge/Open%20Source-GSSoC-orange?style=for-the-badge" />
+<img src="https://img.shields.io/badge/AI-Powered-success?style=for-the-badge" />
+<img src="https://img.shields.io/badge/React-Frontend-blue?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Node.js-Backend-green?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Made%20for-Bharat-orange?style=for-the-badge" />
+
+</div>
 
 ---
 
-## What it does
+# 📌 Overview
 
-- Detects crop disease from a photo using EfficientNet-B0 (ONNX, runs on-device)
-- Generates Grad-CAM heatmap showing which part of the leaf the model focused on
-- Retrieves treatment steps from ICAR and TNAU guidelines using local FAISS RAG
-- Matches detected disease to eligible government schemes (PMFBY, PM-KISAN, etc.)
-- Supports 12 Indian languages
-- Works offline — only Claude API call requires internet
+
+* 📱 **On-Device Detection** — EfficientNet-B0 (ONNX)
+* 🎯 **Visual Explainability** — Grad-CAM Heatmaps
+* 📚 **Offline Local RAG** — FAISS + ICAR / TNAU Guidelines
+* 🏛️ **Scheme Mapping** — PMFBY & PM-KISAN Integration
+* 🗣️ **Multilingual** — 12 Indian Languages
+* ⚡ **Offline-First** — Cloud API (Claude) optional.
 
 ---
 
-## Project Structure
+# ✨ Features
+
+* **On-Device Disease Detection:** Identifies crop diseases instantly from a photo using an optimized EfficientNet-B0 model (ONNX format) running entirely local on the device.
+* **Explainable AI (Grad-CAM):** Generates visual Grad-CAM heatmaps to highlight the exact regions of the leaf the model analyzed, building trust through transparency.
+* **Guideline-Backed RAG Treatment:** Retrieves contextual treatment and management steps powered by an offline FAISS vector database indexed with official ICAR and TNAU agricultural guidelines.
+* **Government Scheme Integration:** Automatically maps diagnosed crop issues to eligible Indian agricultural schemes (e.g., PMFBY, PM-KISAN, State Relief Funds).
+* **Multilingual Support:** Fully accessible across 12 Indian regional languages to empower diverse farming communities.
+* **Offline-First Architecture:** Core detection, heatmap generation, and treatment retrieval work completely offline — internet connectivity is required only for optional Claude API enhancements.
+
+
+# 🛠 Tech Stack
+
+| Layer | Technology |
+| :--- | :--- |
+| **Vision** | EfficientNet-B0, ONNX Runtime, Grad-CAM |
+| **RAG** | FAISS, sentence-transformers (`all-MiniLM-L6-v2`) |
+| **LLM** | Claude 3.5 Sonnet via Anthropic API |
+| **Backend** | FastAPI, Python 3.11 |
+| **Frontend** | React 18, Vite, Axios |
+| **Data Sources** | PlantVillage dataset, ICAR, TNAU, MyScheme.gov |
+---
+
+## 📊 Dataset & Model
+
+| Feature | Details |
+| :--- | :--- |
+| **Visual Classifier** | EfficientNet-B0 fine-tuned on PlantVillage (54,306 images across 14 crops & 26 diseases) |
+| **Disease RAG Corpus** | 20 curated disease entries sourced from official ICAR bulletins & TNAU Agritech Portal |
+| **Scheme Corpus** | 12 Central Government agricultural welfare schemes from MyScheme.gov.in |
+| **Model Footprint** | ~25 MB ONNX format (optimized for edge execution) |
+| **Inference Speed** | <100ms on CPU |
+
+> 💡 **Tip:** For optimal accuracy during evaluation/demo, fine-tune the model on the PlantVillage dataset. Running `scripts/download_model.py` loads default pre-trained ImageNet weights.
+
+---
+
+# 📁 Project Structure
+
+```text
 agrolens/
 ├── backend/
-│ ├── main.py # FastAPI entry point
-│ ├── vision/
-│ │ ├── classifier.py # EfficientNet-B0 ONNX inference
-│ │ └── gradcam.py # Grad-CAM heatmap generation
-│ ├── knowledge/
-│ │ ├── treatment_rag.py # FAISS RAG for disease treatment
-│ │ ├── scheme_finder.py # Government scheme retrieval
-│ │ └── indexes/ # Built FAISS indexes (auto-generated)
-│ └── models/ # ONNX model files (auto-downloaded)
+│   ├── main.py               # FastAPI entry point
+│   ├── vision/
+│   │   ├── classifier.py     # EfficientNet-B0 ONNX inference
+│   │   └── gradcam.py        # Grad-CAM heatmap generation
+│   ├── knowledge/
+│   │   ├── treatment_rag.py  # FAISS RAG for disease treatment
+│   │   ├── scheme_finder.py  # Government scheme retrieval
+│   │   └── indexes/          # Built FAISS indexes (auto-generated)
+│   └── models/               # ONNX model files (auto-downloaded)
 ├── data/
-│ ├── diseases.json # Disease corpus (20 entries)
-│ └── schemes.json # Government schemes (12 entries)
+│   ├── diseases.json         # Disease corpus (20 entries)
+│   └── schemes.json          # Government schemes (12 entries)
 ├── frontend/
-│ ├── src/
-│ │ ├── App.jsx # Main React app
-│ │ └── components/
-│ │ ├── Camera.jsx # Live camera capture
-│ │ ├── ResultCard.jsx # Disease result display
-│ │ └── HeatmapOverlay.jsx # Grad-CAM toggle overlay
-│ ├── index.html
-│ └── package.json
+│   ├── src/
+│   │   ├── App.jsx           # Main React app
+│   │   └── components/
+│   │       ├── Camera.jsx         # Live camera capture
+│   │       ├── ResultCard.jsx     # Disease result display
+│   │       └── HeatmapOverlay.jsx # Grad-CAM toggle overlay
+│   ├── index.html
+│   └── package.json
 ├── scripts/
-│ ├── download_model.py # Downloads and exports ONNX model
-│ └── build_indexes.py # Builds FAISS indexes from JSON data
+│   ├── download_model.py     # Downloads and exports ONNX model
+│   └── build_indexes.py      # Builds FAISS indexes from JSON data
 ├── .env.example
 ├── requirements.txt
 └── setup.sh
 
 ---
+
+# ⚡ Differentiation
+
+| Feature | AgroLens 🌿 | KissanAI | Kisan GPT |
+| :--- | :---: | :---: | :---: |
+| **Works Offline** | ✅ | ❌ | ❌ |
+| **Photo-Based Diagnosis** | ✅ | ❌ | ❌ |
+| **Grad-CAM Explainability** | ✅ | ❌ | ❌ |
+| **12 Indian Languages** | ✅ | ❌ | ❌ |
+| **Government Scheme Matching** | ✅ | ⚠️ Partial | ❌ |
+| **On-Device Edge Inference** | ✅ | ❌ | ❌ |
+
+---
+
+## 2️⃣ Install Dependencies
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+```
+
+### Backend
+
+```bash
+cd backend
+npm install
+```
+
 
 ## Setup
 
@@ -164,6 +244,7 @@ Analyze a crop image.
   "latency_ms": 94
 }
 ```
+---
 
 ### `GET /health`
 
@@ -171,51 +252,22 @@ Returns `{"status": "ok"}` — use to check if backend is running.
 
 ---
 
-## Tech Stack
 
-| Layer       | Technology                                      |
-|-------------|-------------------------------------------------|
-| Vision      | EfficientNet-B0, ONNX Runtime, Grad-CAM         |
-| RAG         | FAISS, sentence-transformers (all-MiniLM-L6-v2) |
-| LLM         | Claude (claude-sonnet-4-6) via Anthropic API   |
-| Backend     | FastAPI, Python 3.11                            |
-| Frontend    | React 18, Vite, Axios                           |
-| Data        | PlantVillage dataset, ICAR, TNAU, MyScheme.gov  |
 
----
+# 💖 Support the Project
 
-## Dataset & Model
+If you like this project:
 
-- **Visual classifier:** EfficientNet-B0 fine-tuned on PlantVillage (54,306 images, 14 crops, 26 diseases)
-- **Disease RAG corpus:** 20 disease entries from ICAR bulletins and TNAU Agritech Portal
-- **Scheme corpus:** 12 central government schemes from MyScheme.gov.in
-- **Model size:** ~25 MB ONNX
-- **Inference:** <100ms on CPU
-
-> For full accuracy, fine-tune the model on PlantVillage before the demo.
-> Pre-trained ImageNet weights are used by default after `scripts/download_model.py`.
+⭐ Star the repository  
+🍴 Fork the project  
+🐛 Raise issues  
+🚀 Contribute to the project  
 
 ---
-
-## Differentiation
-
-|                        | AgroLens | KissanAI | Kisan GPT |
-|------------------------|----------|----------|-----------|
-| Works offline          | ✓        | ✗        | ✗         |
-| Photo-based diagnosis  | ✓        | ✗        | ✗         |
-| Grad-CAM explainability| ✓        | ✗        | ✗         |
-| 12 Indian languages    | ✓        | ✗        | ✗         |
-| Scheme matching        | ✓        | partial  | ✗         |
-| On-device inference    | ✓        | ✗        | ✗         |
-
----
-
 ## Team
 
 Built at IEEE Hackathon 2025 — VIT Bhopal STB11518
 
 ---
 
-## License
 
-MIT
