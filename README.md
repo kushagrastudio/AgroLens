@@ -248,7 +248,7 @@ If you like this project:
 ---
 ## Team
 
-**Team Name-** ChalCodeKare
+**Team Name-** ChalCodeKare  
 **Team Members:**  
 25BAI11055 - Kushagra Nigam  
 25BCE10723 - Vansh Singh   
