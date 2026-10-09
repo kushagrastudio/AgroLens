@@ -248,7 +248,16 @@ If you like this project:
 ---
 ## Team
 
+**Team Name-** ChalCodeKare
+**Team Members:**
+25BAI11055 - Kushagra Nigam 
+25BCE10723 - Vansh Singh 
+25BCY10288 - Bhumi Bhati 
+25BCY10289 - Nishtha Sahu
+
 Built at IEEE Hackathon 2025 — VIT Bhopal STB11518
+
+
 
 
 ---
