@@ -249,7 +249,7 @@ If you like this project:
 ## Team
 
 **Team Name-** ChalCodeKare
-**Team Members:**
+**Team Members:**  
 25BAI11055 - Kushagra Nigam  
 25BCE10723 - Vansh Singh   
 25BCY10288 - Bhumi Bhati   
