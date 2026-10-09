@@ -24,9 +24,6 @@
 * 📱 **On-Device Detection** — EfficientNet-B0 (ONNX)
 * 🎯 **Visual Explainability** — Grad-CAM Heatmaps
 * 📚 **Offline Local RAG** — FAISS + ICAR / TNAU Guidelines
-* 🏛️ **Scheme Mapping** — PMFBY & PM-KISAN Integration
-* 🗣️ **Multilingual** — 12 Indian Languages
-* ⚡ **Offline-First** — Cloud API (Claude) optional.
 
 ---
 
@@ -161,10 +158,10 @@ The setup script will:
 
 ### Configure
 
-Add your Anthropic API key to `.env`:
+Add your GROQ API key to `.env`:
 
 ```env
-ANTHROPIC_API_KEY=sk-ant-your-key-here
+GROQ_API_KEY=sk-ant-your-key-here
 ```
 
 ### Run
@@ -185,20 +182,6 @@ npm run dev
 
 Open `http://localhost:3000` in your browser.
 
----
-
-## Demo Mode
-
-To run without a backend (for screenshots and presentations):
-
-```env
-# in .env
-DEMO_MODE=true
-```
-
-This returns hardcoded results without calling the vision model or Claude API.
-
----
 
 ## API
 
@@ -266,6 +249,7 @@ If you like this project:
 ## Team
 
 Built at IEEE Hackathon 2025 — VIT Bhopal STB11518
+
 
 ---
 
