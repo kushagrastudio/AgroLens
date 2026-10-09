@@ -101,7 +101,11 @@ agrolens/
 
 ---
 
-# ⚡ Differentiation
+<table>
+<tr>
+<td>
+
+### ⚡ Differentiation Matrix
 
 | Feature | AgroLens 🌿 | KissanAI | Kisan GPT |
 | :--- | :---: | :---: | :---: |
@@ -111,6 +115,10 @@ agrolens/
 | **12 Indian Languages** | ✅ | ❌ | ❌ |
 | **Government Scheme Matching** | ✅ | ⚠️ Partial | ❌ |
 | **On-Device Edge Inference** | ✅ | ❌ | ❌ |
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -251,7 +259,6 @@ Analyze a crop image.
 Returns `{"status": "ok"}` — use to check if backend is running.
 
 ---
-
 
 
 # 💖 Support the Project
