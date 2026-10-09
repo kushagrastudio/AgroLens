@@ -101,24 +101,16 @@ agrolens/
 
 ---
 
-<table>
-<tr>
-<td>
-
 ### ⚡ Differentiation Matrix
 
 | Feature | AgroLens 🌿 | KissanAI | Kisan GPT |
 | :--- | :---: | :---: | :---: |
-| **Works Offline** | ✅ | ❌ | ❌ |
-| **Photo-Based Diagnosis** | ✅ | ❌ | ❌ |
-| **Grad-CAM Explainability** | ✅ | ❌ | ❌ |
-| **12 Indian Languages** | ✅ | ❌ | ❌ |
-| **Government Scheme Matching** | ✅ | ⚠️ Partial | ❌ |
-| **On-Device Edge Inference** | ✅ | ❌ | ❌ |
-
-</td>
-</tr>
-</table>
+| **Works Offline**             | ✅ | ❌ | ❌ |
+| **Photo-Based Diagnosis**     | ✅ | ❌ | ❌ |
+| **Grad-CAM Explainability**   | ✅ | ❌ | ❌ |
+| **12 Indian Languages**       | ✅ | ❌ | ❌ |
+| **Government Scheme Matching**| ✅ | ⚠️ Partial | ❌ |
+| **On-Device Edge Inference**  | ✅ | ❌ | ❌ |
 
 ---
 
